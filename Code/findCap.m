@@ -1,7 +1,7 @@
 function center = findCap(I,cap,factor,type)
 %% Introduction to Digital Image Processing - 361.1.4751, BGU Course 2020-2021
-% © Ofir Tanami, Naor Cohen, Mario Denkberg, Sagi Gov.
-[I,offset] = pCrop(I,cap.center,cap.radius * factor);
+% © Ofir Tanami
+[I,offset] = crop(I,cap.center,cap.radius * factor);
 I = rgb2hsv(I);
 
 if type == 1
@@ -45,7 +45,7 @@ end
 BW = (I(:,:,1) >= channel1Min ) & (I(:,:,1) <= channel1Max) & ...
     (I(:,:,2) >= channel2Min ) & (I(:,:,2) <= channel2Max) & ...
     (I(:,:,3) >= channel3Min ) & (I(:,:,3) <= channel3Max);
-%
+
 if any(BW,'All')
     BW = imclearborder(BW);
     BW = bwareafilt(BW,1);

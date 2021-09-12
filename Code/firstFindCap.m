@@ -1,6 +1,6 @@
 function [center,BW] = firstFindCap(I,type)
 %% Introduction to Digital Image Processing - 361.1.4751, BGU Course 2020-2021
-% © Ofir Tanami, Naor Cohen, Mario Denkberg, Sagi Gov.
+% © Ofir Tanami
 % Convert RGB image to chosen color space
 I = rgb2hsv(I);
 if type == 1
@@ -47,9 +47,9 @@ BW = (I(:,:,1) >= channel1Min ) & (I(:,:,1) <= channel1Max) & ...
     (I(:,:,3) >= channel3Min ) & (I(:,:,3) <= channel3Max);
 
 BW = imclearborder(BW);
-BW = bwareafilt(BW,1);
+BW = bwareafilt(BW, 1);
 
-stats = regionprops(BW,'centroid');
+stats = regionprops(BW, 'centroid');
 if isempty(stats)
     center = [];
 else

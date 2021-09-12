@@ -12,6 +12,4 @@ depVideoPlayer = vision.DeployableVideoPlayer;
 for i =  1:1000
     videoFrame = snapshot(cam);
     depVideoPlayer(videoFrame);
-    %imagesc(frame)
-    %drawnow
 end

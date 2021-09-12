@@ -1,7 +1,6 @@
-function [J,offset] = pCrop(I,center,r)
+function [J,offset] = crop(I,center,r)
 center = round(center);
 r = round(r);
-
 a = max([1, center(2) - r]);
 b = min([size(I,1), center(2) + r]);
 c = max([1, center(1) - r]);

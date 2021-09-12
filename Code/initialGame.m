@@ -3,9 +3,10 @@ function [cups,cap,center,radius_range] = initialGame(videoFrame,cupsNumber,reso
 radius_range = findRange(videoFrame,radius_range);
 %% initial Cup's:
 cups = cell(3,1);
-[centers,radii] = imfindcircles(videoFrame(:,:,2),radius_range,'Sensitivity',0.99,'EdgeThreshold',.3);
+[centers,radii] = imfindcircles(videoFrame(:,:,2), radius_range, ...
+                  'Sensitivity',0.99,'EdgeThreshold',.3);
 for i= 1:cupsNumber
-    cups{i} = Cup(radii(i),centers(i,:));
+    cups{i} = Cup(radii(i), centers(i,:));
 end
 
 %% find the cap:
